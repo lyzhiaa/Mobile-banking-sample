@@ -25,9 +25,8 @@ public class AccountTypeController {
     }
 
     //Find all account-types
-    @ResponseStatus(HttpStatus.CREATED)
     @GetMapping
-    List<AccountType> findAccountType() {
+    List<AccountTypeResponse> findAccountType() {
         return accountTypeService.findAccountType();
     }
 

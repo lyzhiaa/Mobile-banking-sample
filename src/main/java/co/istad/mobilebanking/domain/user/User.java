@@ -1,4 +1,4 @@
-package co.istad.mobilebanking.domain;
+package co.istad.mobilebanking.domain.user;
 
 import co.istad.mobilebanking.domain.account.Account;
 import jakarta.persistence.*;

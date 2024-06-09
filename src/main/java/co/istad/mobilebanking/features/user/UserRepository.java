@@ -1,7 +1,6 @@
 package co.istad.mobilebanking.features.user;
 
-import co.istad.mobilebanking.domain.User;
-import jakarta.persistence.Id;
+import co.istad.mobilebanking.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

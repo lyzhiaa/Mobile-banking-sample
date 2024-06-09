@@ -21,7 +21,7 @@ public interface AccountTypeService {
      *
      * @return {@link List<AccountTypeResponse>}
      */
-    List<AccountType> findAccountType();
+    List<AccountTypeResponse> findAccountType();
 
     /**
      *

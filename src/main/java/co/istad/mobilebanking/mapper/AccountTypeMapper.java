@@ -18,6 +18,6 @@ public interface AccountTypeMapper {
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void fromAccountTypeUpdateRequest(AccountTypeUpdateRequest accountTypeUpdateRequest,@MappingTarget AccountType accountType );
     AccountType fromAccountTypeCreateRequest(AccountTypeCreateRequest accountCreateRequest);
-    List<AccountType> toAccountTypeResponseList(List<AccountType> accountTypes);
+    List<AccountTypeResponse> toAccountTypeResponseList(List<AccountType> accountTypes);
 
 }

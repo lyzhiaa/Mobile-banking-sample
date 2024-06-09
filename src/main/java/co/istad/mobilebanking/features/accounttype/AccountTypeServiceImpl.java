@@ -31,7 +31,7 @@ public class AccountTypeServiceImpl implements AccountTypeService {
 //        if (accountTypeRepository.existsByName(accountTypeCreateRequest.name())) {
 //            throw new ResponseStatusException(HttpStatus.CONFLICT,
 //                    "You are already create this kind(name) of account!!!");
-//        }
+//        };
         //Transfer DTO to Domain model
         AccountType accountType = accountTypeMapper.fromAccountTypeCreateRequest(accountTypeCreateRequest);
         accountType.setIsDeleted(false);
@@ -50,9 +50,9 @@ public class AccountTypeServiceImpl implements AccountTypeService {
     }
 
     @Override
-    public List<AccountType> findAccountType() {
+    public List<AccountTypeResponse> findAccountType() {
         Sort sortById = Sort.by(Sort.Direction.DESC, "id");
-        List<AccountType> accountTypes = accountTypeRepository.findAll();
+        List<AccountType> accountTypes = accountTypeRepository.findAll(sortById);
 
         return accountTypeMapper.toAccountTypeResponseList(accountTypes);
 
