@@ -1,7 +1,7 @@
 package co.istad.mobilebanking.domain.account;
 
 import co.istad.mobilebanking.domain.Transaction;
-import co.istad.mobilebanking.domain.user.User;
+import co.istad.mobilebanking.domain.User;
 import co.istad.mobilebanking.domain.card.Card;
 import jakarta.persistence.*;
 import lombok.Getter;

@@ -1,5 +1,6 @@
-package co.istad.mobilebanking.domain.user;
+package co.istad.mobilebanking.domain;
 
+import co.istad.mobilebanking.domain.Role;
 import co.istad.mobilebanking.domain.account.Account;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -20,7 +21,9 @@ public class User {
     private Integer id;
     private String uuid;
     @Column(length = 10, nullable = false, unique = true)
-    private String PhoneNumber;
+    private String phoneNumber;
+    @Column(nullable = false, unique = true)
+    private String email;
     @Column(length = 20, nullable = false)
     private String name;
     @Column(length = 6, nullable = false)
@@ -50,8 +53,15 @@ public class User {
     //================================
     private Boolean isDeleted;
     private Boolean isBlocked;
+    private Boolean isVerified;
     //================================
     @OneToMany(mappedBy = "user")
     private List<Account> account;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private List<Role> roles;
 
 }

@@ -1,6 +1,6 @@
 package co.istad.mobilebanking.features.account;
 
-import co.istad.mobilebanking.domain.user.User;
+import co.istad.mobilebanking.domain.User;
 import co.istad.mobilebanking.domain.account.Account;
 import co.istad.mobilebanking.domain.account.AccountType;
 import co.istad.mobilebanking.features.account.dto.*;
