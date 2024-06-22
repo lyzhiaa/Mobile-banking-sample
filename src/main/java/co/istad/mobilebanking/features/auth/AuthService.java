@@ -1,8 +1,6 @@
 package co.istad.mobilebanking.features.auth;
 
-import co.istad.mobilebanking.features.auth.dto.RegisterRequest;
-import co.istad.mobilebanking.features.auth.dto.RegisterResponse;
-import co.istad.mobilebanking.features.auth.dto.VerificationRequest;
+import co.istad.mobilebanking.features.auth.dto.*;
 import jakarta.mail.MessagingException;
 
 public interface AuthService {
@@ -11,4 +9,5 @@ public interface AuthService {
 
     void reSentVerification(String email) throws MessagingException;
     void verify(VerificationRequest verificationRequest);
+    AuthResponse login(LoginRequest loginRequest);
 }
