@@ -72,7 +72,11 @@ public class SecurityConfig {
 
         //Security Mechanism (HTTP Basic Auth)
         //http basic auth (username & password)
-        httpSecurity.httpBasic(Customizer.withDefaults());
+
+        //httpSecurity.httpBasic(Customizer.withDefaults());
+
+        //Security Mechanism (JWT)
+        httpSecurity.oauth2ResourceServer(jwt -> jwt.jwt(Customizer.withDefaults()));
 
         //disable CSRF (Cross site request forgery) token
         httpSecurity.csrf(token -> token.disable());
