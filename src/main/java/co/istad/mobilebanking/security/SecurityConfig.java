@@ -65,14 +65,14 @@ public class SecurityConfig {
     SecurityFilterChain configureApiSecurity(HttpSecurity httpSecurity, @Qualifier("accessTokenJwtDecoder") JwtDecoder jwtDecoder) throws Exception {
         //endpoint security config
         httpSecurity.authorizeHttpRequests(endpoint -> endpoint
-                .requestMatchers("api/v1/auth/**").permitAll()
+                .requestMatchers("/api/v1/auth/**", "/api/v1/upload/**", "/upload/**").permitAll()
 //                .requestMatchers(HttpMethod.POST, "api/v1/accounts/**").hasAnyRole("USER")
 //                .requestMatchers(HttpMethod.GET, "api/v1/accounts/**").hasAuthority("SCOPE_ROLE_USER")
 //                .requestMatchers(HttpMethod.DELETE, "/api/v1/accounts/**").hasAnyRole("ADMIN")
 //                .requestMatchers(HttpMethod.PUT, "/api/v1/accounts/**").hasAnyRole("USER")
 //                .requestMatchers(HttpMethod.PATCH, "/api/v1/accounts/**").hasAnyRole("USER")
-                .requestMatchers(HttpMethod.POST, "api/v1/account-types/**").hasAnyAuthority("MANAGER", "ADMIN")
-                .requestMatchers(HttpMethod.GET, "api/v1/accounts-types/**").hasAuthority("SCOPE_USER")
+                .requestMatchers(HttpMethod.POST, "/api/v1/account-types/**").hasAnyAuthority("MANAGER", "ADMIN")
+                .requestMatchers(HttpMethod.GET, "/api/v1/accounts-types/**").hasAuthority("SCOPE_USER")
                 .requestMatchers(HttpMethod.DELETE, "/api/v1/accounts-types/**").hasAuthority("ADMIN")
                 .requestMatchers(HttpMethod.PUT, "/api/v1/accounts-types/**").hasAnyAuthority("ADMIN", "MANAGER")
                 .requestMatchers(HttpMethod.PATCH, "/api/v1/accounts/**").hasAnyAuthority("ADMIN", "MANAGER")

@@ -237,18 +237,23 @@ public class AuthServiceImpl implements AuthService {
                 .claim("studentId", "ISTAD0010")
                 .claim("scope", scope)
                 .build();
+
+        //---------------------------------------------------------
         //---------------| Refresh Token |-------------------------
+        //---------------------------------------------------------
+
         JwtClaimsSet jwtRefreshTokenClimeSet = JwtClaimsSet.builder()
                 .id(auth.getName())
                 .subject("Refresh Token")
                 .issuer(auth.getName())
                 .issuedAt(now)
-                .expiresAt(now.plus(5, ChronoUnit.SECONDS))
+                .expiresAt(now.plus(7, ChronoUnit.DAYS))
                 .audience(List.of("NextJS", "Android", "iOS"))
                 .claim("isAdmin", true)
                 .claim("studentId", "ISTAD0010")
                 .claim("scope", scope)
                 .build();
+
         // 2. Generate Token
         String accessToken = accessTokenJwtEncoder
                 .encode(JwtEncoderParameters.from(jwtClaimsSet))
