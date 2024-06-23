@@ -24,6 +24,10 @@ public class Role implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return "ROLE_" + name; //ROLE_ADMIN
+        //without ROLE_
+        return " " + name;
+
+        //with ROLE_
+//        return "ROLE_" + name; //ROLE_ADMIN
     }
 }

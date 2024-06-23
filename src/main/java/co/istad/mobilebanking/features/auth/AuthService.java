@@ -10,4 +10,5 @@ public interface AuthService {
     void reSentVerification(String email) throws MessagingException;
     void verify(VerificationRequest verificationRequest);
     AuthResponse login(LoginRequest loginRequest);
+    AuthResponse refreshToken(RefreshTokenCreateRequest refreshTokenRequest);
 }
